@@ -18,7 +18,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         // Normally the master code is input through the keyboard the first time the user uses the system
-        panel = Panel(code: "1234")
+        let DEFAULT_TIMEOUT: TimeInterval = 30.0
+        panel = Panel(code: "1234", exitDelay: DEFAULT_TIMEOUT)
     }
 
 

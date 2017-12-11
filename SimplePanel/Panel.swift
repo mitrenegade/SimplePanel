@@ -19,19 +19,20 @@ class Panel: NSObject {
     var status: PanelStatus {
         didSet {
             if status == .arming {
-                self.timer = Timer.scheduledTimer(withTimeInterval: self.timeoutAmount, repeats: false) {_ in
+                self.timer = Timer.scheduledTimer(withTimeInterval: self.exitDelayInterval, repeats: false) {_ in
                     self.status = .armed
                 }
             }
         }
     }
     
-    var timeoutAmount = 6.0
-    var masterCode: String
-    var timer: Timer?
+    fileprivate var exitDelayInterval: TimeInterval
+    fileprivate var masterCode: String
+    fileprivate var timer: Timer?
     
-    init(code: String) {
+    init(code: String, exitDelay: TimeInterval) {
         masterCode = code
+        exitDelayInterval = exitDelay
         status = .disarmed
     }
     
@@ -49,5 +50,4 @@ class Panel: NSObject {
             self.timer = nil
         }
     }
-    
 }

@@ -11,6 +11,7 @@ import XCTest
 
 let KNOWN_VALID_ARM_CODE = "1234"
 let KNOWN_INVALID_ARM_CODE = "1235"
+let EXIT_DELAY_INTERVAL: TimeInterval = 5.0
 
 class PanelTesterTests: XCTestCase {
     
@@ -20,7 +21,7 @@ class PanelTesterTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        panel = Panel(code: KNOWN_VALID_ARM_CODE)
+        panel = Panel(code: KNOWN_VALID_ARM_CODE, exitDelay: EXIT_DELAY_INTERVAL)
         panelViewModel = PanelViewModel(panel: panel)
     }
     
@@ -29,6 +30,7 @@ class PanelTesterTests: XCTestCase {
         super.tearDown()
     }
     
+    // ARM tests
     func testValidArming() {
         XCTAssert(panel.status == .disarmed)
         panel.arm(code: KNOWN_VALID_ARM_CODE)
@@ -41,34 +43,35 @@ class PanelTesterTests: XCTestCase {
         XCTAssert(panel.status == .disarmed)
     }
     
-    func testExactTimeoutArmTimer() {
+    // ARMING state tests
+    func testArmStateAfterExitDelayEnds() {
         XCTAssert(panel.status == .disarmed)
         panel.arm(code: KNOWN_VALID_ARM_CODE)
         XCTAssert(panel.status == .arming)
-        let exp = expectation(description: "panel wil be armed")
+        let exp = expectation(description: "panel should be armed after exit delay")
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+panel.timeoutAmount) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + EXIT_DELAY_INTERVAL) {
             if self.panel.status == .armed {
                 exp.fulfill()
             }
         }
         
-        wait(for: [exp], timeout: panel.timeoutAmount)
+        wait(for: [exp], timeout: EXIT_DELAY_INTERVAL*2)
     }
     
-    func testEarlyTimeoutArmTimer() {
+    func testArmStateBeforeExitDelayEnds() {
         XCTAssert(panel.status == .disarmed)
         panel.arm(code: KNOWN_VALID_ARM_CODE)
         XCTAssert(panel.status == .arming)
-        let exp = expectation(description: "panel will still be arming")
+        let exp = expectation(description: "panel will still be arming before exit delay")
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+panel.timeoutAmount-1.0) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+EXIT_DELAY_INTERVAL-1.0) {
             if self.panel.status == .arming {
                 exp.fulfill()
             }
         }
         
-        wait(for: [exp], timeout: panel.timeoutAmount)
+        wait(for: [exp], timeout: EXIT_DELAY_INTERVAL*2)
     }
     
     func testInvalidCode() {
