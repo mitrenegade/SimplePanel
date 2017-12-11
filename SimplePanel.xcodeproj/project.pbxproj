@@ -13,6 +13,8 @@
 		C6094F821FDEF3FB00B3C307 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6094F811FDEF3FB00B3C307 /* Assets.xcassets */; };
 		C6094F851FDEF3FB00B3C307 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6094F831FDEF3FB00B3C307 /* LaunchScreen.storyboard */; };
 		C6094F901FDEF3FB00B3C307 /* SimplePanelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6094F8F1FDEF3FB00B3C307 /* SimplePanelTests.swift */; };
+		C6094F9C1FDEF43300B3C307 /* PanelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6094F9A1FDEF43200B3C307 /* PanelViewModel.swift */; };
+		C6094F9D1FDEF43300B3C307 /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6094F9B1FDEF43300B3C307 /* Panel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		C6094F8B1FDEF3FB00B3C307 /* SimplePanelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimplePanelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6094F8F1FDEF3FB00B3C307 /* SimplePanelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePanelTests.swift; sourceTree = "<group>"; };
 		C6094F911FDEF3FB00B3C307 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6094F9A1FDEF43200B3C307 /* PanelViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelViewModel.swift; sourceTree = "<group>"; };
+		C6094F9B1FDEF43300B3C307 /* Panel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				C6094F811FDEF3FB00B3C307 /* Assets.xcassets */,
 				C6094F831FDEF3FB00B3C307 /* LaunchScreen.storyboard */,
 				C6094F861FDEF3FB00B3C307 /* Info.plist */,
+				C6094F9B1FDEF43300B3C307 /* Panel.swift */,
+				C6094F9A1FDEF43200B3C307 /* PanelViewModel.swift */,
 			);
 			path = SimplePanel;
 			sourceTree = "<group>";
@@ -201,6 +207,8 @@
 			files = (
 				C6094F7D1FDEF3FB00B3C307 /* ViewController.swift in Sources */,
 				C6094F7B1FDEF3FB00B3C307 /* AppDelegate.swift in Sources */,
+				C6094F9D1FDEF43300B3C307 /* Panel.swift in Sources */,
+				C6094F9C1FDEF43300B3C307 /* PanelViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

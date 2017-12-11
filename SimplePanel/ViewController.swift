@@ -10,14 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var panel: Panel?
+    @IBOutlet var alarm: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        // Normally the master code is input through the keyboard the first time the user uses the system
+        panel = Panel(code: "1234")
     }
 
 
