@@ -30,10 +30,10 @@ class Panel: NSObject {
     fileprivate var masterCode: String
     fileprivate var timer: Timer?
     
-    init(code: String, exitDelay: TimeInterval) {
+    init(code: String, exitDelay: TimeInterval = 0.0, initialState: PanelStatus = .disarmed) {
         masterCode = code
         exitDelayInterval = exitDelay
-        status = .disarmed
+        status = initialState
     }
     
     // app side changes

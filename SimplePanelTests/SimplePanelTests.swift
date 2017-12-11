@@ -17,17 +17,32 @@ class PanelTesterTests: XCTestCase {
     
     var panel: Panel!
     var panelViewModel: PanelViewModel!
+    var panelArmed: Panel!
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         panel = Panel(code: KNOWN_VALID_ARM_CODE, exitDelay: EXIT_DELAY_INTERVAL)
         panelViewModel = PanelViewModel(panel: panel)
+        
+        panelArmed = Panel(code: KNOWN_VALID_ARM_CODE, initialState: .armed)
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+    }
+    
+    func testInitialArmState() {
+        let disarmed = Panel(code: KNOWN_VALID_ARM_CODE, exitDelay: EXIT_DELAY_INTERVAL, initialState: .disarmed)
+        let arming = Panel(code: KNOWN_VALID_ARM_CODE, exitDelay: EXIT_DELAY_INTERVAL, initialState: .arming)
+        let armed = Panel(code: KNOWN_VALID_ARM_CODE, exitDelay: EXIT_DELAY_INTERVAL, initialState: .armed)
+        let alarm = Panel(code: KNOWN_VALID_ARM_CODE, exitDelay: EXIT_DELAY_INTERVAL, initialState: .alarm)
+
+        XCTAssert(disarmed.status == .disarmed)
+        XCTAssert(arming.status == .arming)
+        XCTAssert(armed.status == .armed)
+        XCTAssert(alarm.status == .alarm)
     }
     
     // ARM tests
@@ -74,12 +89,19 @@ class PanelTesterTests: XCTestCase {
         wait(for: [exp], timeout: EXIT_DELAY_INTERVAL*2)
     }
     
-    func testInvalidCode() {
-        XCTAssert(panel.status == .disarmed)
-        panel.arm(code: "5678")
-        XCTAssert(panel.status == .disarmed)
+    func testValidDisarm() {
+        XCTAssert(panelArmed.status == .armed)
+        panelArmed.disarm(code: KNOWN_VALID_ARM_CODE)
+        XCTAssert(panelArmed.status == .disarmed)
     }
-    
+
+    func testInvalidDisarm() {
+        XCTAssert(panelArmed.status == .armed)
+        panelArmed.disarm(code: KNOWN_INVALID_ARM_CODE)
+        XCTAssert(panelArmed.status == .armed)
+    }
+
+    // View model tests
     func testViewModel() {
         XCTAssert(panelViewModel.iconColor == UIColor.green)
         panel.arm(code: "1234")
