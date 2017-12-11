@@ -8,14 +8,15 @@
 
 import UIKit
 
+enum PanelStatus {
+    case disarmed
+    case arming
+    case armed
+    case alarm
+}
+
 class Panel: NSObject {
-    enum PanelStatus {
-        case disarmed
-        case arming
-        case armed
-        case alarm
-    }
-    
+
     var status: PanelStatus {
         didSet {
             if status == .arming {
@@ -51,3 +52,4 @@ class Panel: NSObject {
         }
     }
 }
+

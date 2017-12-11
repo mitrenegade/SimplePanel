@@ -15,6 +15,8 @@
 		C6094F901FDEF3FB00B3C307 /* SimplePanelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6094F8F1FDEF3FB00B3C307 /* SimplePanelTests.swift */; };
 		C6094F9C1FDEF43300B3C307 /* PanelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6094F9A1FDEF43200B3C307 /* PanelViewModel.swift */; };
 		C6094F9D1FDEF43300B3C307 /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6094F9B1FDEF43300B3C307 /* Panel.swift */; };
+		C6094F9F1FDF098100B3C307 /* PanelStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6094F9E1FDF098100B3C307 /* PanelStateManager.swift */; };
+		C6094FA11FDF09B500B3C307 /* PanelStateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6094FA01FDF09B500B3C307 /* PanelStateManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		C6094F911FDEF3FB00B3C307 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6094F9A1FDEF43200B3C307 /* PanelViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelViewModel.swift; sourceTree = "<group>"; };
 		C6094F9B1FDEF43300B3C307 /* Panel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
+		C6094F9E1FDF098100B3C307 /* PanelStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelStateManager.swift; sourceTree = "<group>"; };
+		C6094FA01FDF09B500B3C307 /* PanelStateManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelStateManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 				C6094F831FDEF3FB00B3C307 /* LaunchScreen.storyboard */,
 				C6094F861FDEF3FB00B3C307 /* Info.plist */,
 				C6094F9B1FDEF43300B3C307 /* Panel.swift */,
+				C6094F9E1FDF098100B3C307 /* PanelStateManager.swift */,
 				C6094F9A1FDEF43200B3C307 /* PanelViewModel.swift */,
 			);
 			path = SimplePanel;
@@ -97,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				C6094F8F1FDEF3FB00B3C307 /* SimplePanelTests.swift */,
+				C6094FA01FDF09B500B3C307 /* PanelStateManagerTests.swift */,
 				C6094F911FDEF3FB00B3C307 /* Info.plist */,
 			);
 			path = SimplePanelTests;
@@ -209,6 +215,7 @@
 				C6094F7B1FDEF3FB00B3C307 /* AppDelegate.swift in Sources */,
 				C6094F9D1FDEF43300B3C307 /* Panel.swift in Sources */,
 				C6094F9C1FDEF43300B3C307 /* PanelViewModel.swift in Sources */,
+				C6094F9F1FDF098100B3C307 /* PanelStateManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6094FA11FDF09B500B3C307 /* PanelStateManagerTests.swift in Sources */,
 				C6094F901FDEF3FB00B3C307 /* SimplePanelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
