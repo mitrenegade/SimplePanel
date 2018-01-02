@@ -17,15 +17,7 @@ enum PanelStatus {
 
 class Panel: NSObject {
 
-    var status: PanelStatus {
-        didSet {
-            if status == .arming {
-                self.timer = Timer.scheduledTimer(withTimeInterval: self.exitDelayInterval, repeats: false) {_ in
-                    self.status = .armed
-                }
-            }
-        }
-    }
+    var status: PanelStatus
     
     fileprivate var exitDelayInterval: TimeInterval
     fileprivate var masterCode: String
@@ -39,17 +31,9 @@ class Panel: NSObject {
     
     // app side changes
     func arm(code: String) {
-        if code == self.masterCode {
-            self.status = .arming
-        }
     }
     
     func disarm(code: String) {
-        if code == self.masterCode {
-            self.status = .disarmed
-            self.timer?.invalidate()
-            self.timer = nil
-        }
     }
 }
 
